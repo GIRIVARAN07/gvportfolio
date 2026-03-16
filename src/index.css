@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+}
+
+@theme {
+  --color-background: #050505;
+  --color-crimson-red: #DC143C;
+  --color-glass: rgba(255, 255, 255, 0.05);
+
+  --shadow-red-glow: 0 0 15px rgba(220, 20, 60, 0.5);
+  --shadow-red-glow-strong: 0 0 25px rgba(220, 20, 60, 0.8);
+
+  --animate-text-reveal: text-reveal 1.5s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+  --animate-subtle-float: float 3s ease-in-out infinite;
+
+  @keyframes text-reveal {
+    0% { transform: translateY(100%); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-background);
+  color: white;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+@utility glow-border {
+  position: relative;
+  border: 1px solid rgba(220, 20, 60, 0.3);
+  transition: all 0.3s ease;
+  &:hover {
+    border-color: rgba(220, 20, 60, 0.8);
+    box-shadow: 0 0 20px rgba(220, 20, 60, 0.4);
+  }
+}
+
+@utility glass-effect {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+@utility tech-grid {
+  background-image: linear-gradient(rgba(220, 20, 60, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(220, 20, 60, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
